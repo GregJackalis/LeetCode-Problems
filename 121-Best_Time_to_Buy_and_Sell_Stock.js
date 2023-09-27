@@ -46,6 +46,7 @@ var maxProfit = function(prices) {
         if (dayMax > dayMin && profit < max - min) profit = max - min;
         if (dayMax < dayMin) dayMax = 0, max = 0;
     }
+    return profit;
 };
 
 maxProfit([2,4,1]);
