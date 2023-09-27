@@ -51,9 +51,16 @@ var maxSubArray = function(nums) {
     let sum = nums[0];
     let maxSum = nums[0]
     for (let i = 1; i < nums.length; i++) {
-        // if (sum + nums[i] > nums[i]) sum += nums[i]; else sum = nums[i]; //if the current value is larger than sum + currentValue, then the sum is initialized to sum = currentValue (nums[i])
+        // if (sum + nums[i] > nums[i]) sum += nums[i]; else sum = nums[i]; 
+        //if the current value is larger than sum + currentValue, then the sum is initialized to sum = currentValue (nums[i])
+        
         sum = Math.max(0, sum) + nums[i]; // after watching neetCode's youtube explanation, I came up with this way of solving it too (similar thing to above)
-        if (maxSum < sum) maxSum = sum; // used ternary operators before but it turned out that are way slower than a simple if statement
+        //here the Math.max() is used to check whether the sum made from the previous iteration is a positive value (above zero) and if not then 0 is returned
+        //and then the current value is added to 0 and at the end it seems like the sum has been initialized to the current value
+
+        if (maxSum < sum) maxSum = sum; 
+        
+        // used simple if statements because I tried ternary operators before and it was a lot slower
     }
     return maxSum;
 };
