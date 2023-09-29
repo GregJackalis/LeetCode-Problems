@@ -60,3 +60,29 @@ var findMin2 = function(nums) {
 };
 
 console.log(findMin2([4, 5, 6, 7, 8, 0, 2]));
+
+
+
+// Find MAXIMUM in Rotated Sorted Array in O(log n) Time Complexity ?:
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var findMin3 = function(nums) {
+    let leftPointer = 0; 
+    let rightPointer = nums.length - 1;
+    while (leftPointer < rightPointer) {
+        let mid = Math.floor((leftPointer + rightPointer) / 2);
+
+        if (nums[mid] > nums[rightPointer]){
+            leftPointer = mid;
+            rightPointer--;
+        } else {
+            rightPointer = mid;
+            leftPointer ++;
+        }
+    }
+    return nums[rightPointer];
+};
+
+console.log(findMin3([2, 4, 9, 0, 1, 2, 4]));
