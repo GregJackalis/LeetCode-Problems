@@ -29,19 +29,19 @@
 var search = function(nums, target) {
     let leftPointer = 0;
     let rightPointer = nums.length - 1;
-    while (leftPointer <= rightPointer) {
-        let mid = Math.ceil((leftPointer + rightPointer) / 2);
-        if (nums[mid] === target) return mid;
+    while (leftPointer <= rightPointer) { // using <= and not just < because there might be times that the array is just one element, and in that case if it was just < then it wouldn't go inside the loop at all
+        let mid = Math.ceil((leftPointer + rightPointer) / 2); // on each iteration a new mid is made with the changed pointers
+        if (nums[mid] === target) return mid; // on each iteration before checking for anything else, with the new made mid var I check if it's on the value that I'm looking for
 
-        if (target > nums[leftPointer] && target > nums[rightPointer] && nums[mid] < nums[rightPointer]) {
-            if (target > nums[mid]) {
-                rightPointer = mid - 1;
-                continue
-            } else {
-                leftPointer = mid + 1;
-                continue
+        if (target > nums[leftPointer] && target > nums[rightPointer] && nums[mid] < nums[rightPointer]) { // in case we're looking in an array that is sorted enough to have some larger than the mid values at the end
+            if (target > nums[mid]) { // in case larger values at the end and smaller pointer values than target, then in case the target is also larger than the mid value
+                rightPointer = mid - 1; // then this means that the value is at the left side of the array
+                continue;
+            } else { // if the target is smaller than the mid value, but still larger than the two pointer values with also the mid being smaller than the right end value
+                leftPointer = mid + 1; // then the value is on the right side of the array
+                continue;
             }
-        } else if (target > nums[leftPointer]) {
+        } else if (target > nums[leftPointer]) { // in case only the target is larger than the value on the left pointer, then the same happends inside
             if (nums[mid] > target){
                 rightPointer = mid - 1;
                 continue;
