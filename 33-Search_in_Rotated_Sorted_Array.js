@@ -17,7 +17,10 @@
 
 
 // O(log n) Time Comlexity ===> Binary Search Method:
-// - This solution took me a while and lots of testcases to find it.
+// - This solution took me a while and lots of testcases to find it. It uses the Binary Search Method and on each "special" case there are specific cases
+//   made on each pointer as well. I can't really explain how I came up with this solution, that's because this solution was made through making a main 
+//   "structure" and then through lots of changes and testcases (and small changes each time) lead up to the actual solution, which covers any possible
+//   outcome, every possible rotate sorted array.
 /**
  * @param {number[]} nums
  * @param {number} target
