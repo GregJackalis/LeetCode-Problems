@@ -53,7 +53,7 @@ var findMin2 = function(nums) {
     while (leftPointer < rightPointer) {
         let mid = Math.floor((leftPointer + rightPointer) / 2);
 
-        if (nums[mid] > nums[rightPointer]) leftPointer++;
+        if (nums[mid] > nums[rightPointer]) leftPointer++; // if this condition is true then the array has been rotated
         else rightPointer = mid;
     }
     return nums[rightPointer];
