@@ -43,8 +43,10 @@ var maxProfit = function(prices) {
             dayMax = i;
         }
 
-        if (dayMax > dayMin && profit < max - min) profit = max - min;
-        if (dayMax < dayMin) dayMax = 0, max = 0;
+        if (dayMax > dayMin && profit < max - min) profit = max - min; // if day max is after the day min (meaning that we can first buy in the min price and sell afterwards in
+                                                                    // the max price, because it cant be the other way around), AND if the the current profit value is smaller than the new profit made
+                                                                    // then it changes the profit value 
+        if (dayMax < dayMin) dayMax = 0, max = 0; // if the day max is after day min then no stocks can be bought since obviously you cannot sell before you buy
     }
     return profit;
 };

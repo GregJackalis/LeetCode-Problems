@@ -88,7 +88,8 @@ var search = function(arr, target) {
 
         if (arr[left] <= arr[mid]) {
             if (arr[left] <= target && target < arr[mid]) {
-                right = mid - 1;
+                right = mid - 1; // here the right pointer goes one element before the mid because in the if statement above i check if target is just smaller and not equal
+                                // plus, on the even above if statement than that the condition includes two cases for smaller OR equal
             } else {
                 left = mid + 1;
             }
