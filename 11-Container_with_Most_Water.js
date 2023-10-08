@@ -11,7 +11,17 @@
 // O(n) Time Complexity:
 // **  NOTE: NOT THE BEST PROBLEM DESCRIPTION. I APPROACHED THE PROBLEM AS IN FINDING THE MAX "SUB-RECTANGLE"
 // - I used the Binary Search Method with the only difference that I didn't sorted the array, simply because it's a bar chart so each 
-//   position matters and sorting the array/barchart based on the values would ruin the actual barchart
+//   position matters and sorting the array/barchart based on the values would ruin the actual barchart.
+
+// - Then, on each iteration the rectangle formula is used, where the pointers (positions) are used for the width of the two "bars" and their
+//   actual values as the height.
+
+// - On the height calculation, I used Math.min because just like in the water container picture on the problem's description, when i find the area of the 
+//   rectangle for two sides that are NOT equal (non-equal height), I need to keep the smaller one.
+
+// - Lastly, each iteration continues by moving the smaller value's pointer. 
+//      E.g. ==> if checking the rightVal is bigger than the leftValthen then the left pointer is being incremented to look for a bigger value. 
+//               In case the leftVal is bigger or the two values are the same then the right one is being decremented.
 /**
  * @param {number[]} height
  * @return {number}
